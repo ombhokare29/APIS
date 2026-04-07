@@ -27,7 +27,7 @@ def create_task(task: Task):
     return {"message": "Task created", "data": new_task}
 
 
-# ------------------ READ ALL (with filters) ------------------
+#  READ ALL (with filters) 
 @app.get("/tasks")
 def get_tasks(
     status: Optional[str] = None,
@@ -53,7 +53,7 @@ def get_task(task_id: int):
     raise HTTPException(status_code=404, detail="Task not found")
 
 
-# ------------------ UPDATE ------------------
+# UPDATE
 @app.put("/tasks/{task_id}")
 def update_task(task_id: int, updated_task: Task):
     for i, task in enumerate(tasks):
@@ -67,7 +67,7 @@ def update_task(task_id: int, updated_task: Task):
     raise HTTPException(status_code=404, detail="Task not found")
 
 
-# ------------------ DELETE ------------------
+# DELETE
 @app.delete("/tasks/{task_id}")
 def delete_task(task_id: int):
     for i, task in enumerate(tasks):
@@ -78,7 +78,7 @@ def delete_task(task_id: int):
     raise HTTPException(status_code=404, detail="Task not found")
 
 
-# ------------------ ROOT ------------------
+#root
 @app.get("/")
 def home():
     return {"message": "Task API running 🚀"}
