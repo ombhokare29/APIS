@@ -27,7 +27,7 @@ def create_task(task: Task):
     return {"message": "Task created", "data": new_task}
 
 
-#  READ ALL (with filters) 
+# ------------------ READ ALL (with filters) ------------------
 @app.get("/tasks")
 def get_tasks(
     status: Optional[str] = None,
